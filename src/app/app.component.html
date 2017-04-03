@@ -10,8 +10,9 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a routerLink="/login" routerLinkActive="active">Login</a></li>
-                <li><a routerLink="/login" routerLinkActive="active" (click)="authenticationService.logout()">Logout</a></li>
+                <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+                <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="login" (click)="authenticationService.logout()">Logout</a></li>
             </ul>
         </div>
     </div>
