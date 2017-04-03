@@ -1,0 +1,30 @@
+<div class="alert alert-success" role="alert">
+    <h2>
+        The Event Schedule of the Week
+        <div>
+            <span id="prevweek" (click)="showPrev()" class="badge badge-pill badge-default">
+                <strong><</strong>
+            </span>
+            <span id="thisweek" class="badge badge-pill badge-default">{{thisWeek}}</span>
+            <span id="nextweek" (click)="showNext()"class="badge badge-pill badge-default">
+                <strong>></strong>
+            </span>
+        </div>
+    </h2>
+</div>
+
+<table class="table" *ngIf="events">
+    <template ngFor let-e [ngForOf] = "events"  let-i = "index" >
+        <th class="alert-info date_header" colspan="2" *ngIf="e.show_date">
+            {{e.event_date}}
+        </th>
+        <tr>
+            <td class="event_rows">
+                {{e.event_time}}
+            </td>
+            <td>
+                <em>{{e.event_name}}</em>
+            </td>
+        </tr>
+    </template>
+</table>

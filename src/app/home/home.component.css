@@ -1,0 +1,17 @@
+th, tr {
+    border-top: thin solid #CCCCCC;
+    height: 2.5em;
+}
+
+#thisweek {
+    font-size: 0.6em;
+}
+
+.date_header {
+    padding-left: 1em;
+    padding-top: 0.5em;
+}
+
+.event_rows {
+    text-align: center;
+}
