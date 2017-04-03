@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { EventProgram } from '../event-program';
 import { ZenithEventService } from '../zenith-event.service';
-import { Event } from '../event';
 
 @Component({
   selector: 'app-home',
@@ -32,12 +31,6 @@ export class HomeComponent implements OnInit {
     
     this.zenithEventService.getZenithEventById(this.current_idx)
       .then(ev => this.events = ev); 
-    /*
-    this.zenithEventService.getZenithEvents().then(ev => function(ev) {
-      this.zenithEventService.getZenithEventById(this.current_inx, ev)
-      .then(nev => this.events = nev);
-    }); */
-
   }
 
   showPrev(): void {

@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ZenithEventService } from './zenith-event.service';
+import { AuthenticationService } from './authentication.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ZenithEventService]
+  providers: [ZenithEventService, AuthenticationService]
 })
 export class AppComponent {  
 
+  constructor(private authenticationService: AuthenticationService) { }
+
   static readonly DAY_OFFSET = (24*60*60*1000);
-  //title = "app works";
 
   public static getThisWeek(d: Date): string {
-    //let today = new Date();
     if (d.getDay() === 0)
       d.setTime(d.getTime() - this.DAY_OFFSET * 1);
     let monday = new Date();
@@ -44,6 +45,22 @@ export class AppComponent {
   public static getDateFromStr(dateStr: string): Date {
     let res = dateStr.replace(/,/g, "").split(" ");
     return new Date(parseInt(res[3]), this.getMonthNumber(res[1]),  parseInt(res[2]));
+  }
+  // dateStr = 2017-03-27
+  public static getDateFromStr2(dateStr: string): Date {
+    return new Date(parseInt(dateStr.substr(0, 4)), 
+                    parseInt(dateStr.substr(5, 2)) - 1,
+                    parseInt(dateStr.substr(8, 2)));
+  }
+
+  public static getDecoratedDate(d: Date): string {
+    return this.getDayName(d) + ", " + 
+            this.getMonthName(d) + " " + d.getDate() + ", " + 
+            d.getFullYear();
+  }
+
+  public static getDecoDate(dateStr: string): string {
+    return this.getDecoratedDate(this.getDateFromStr2(dateStr));
   }
  
 }

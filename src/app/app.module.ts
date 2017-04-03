@@ -8,6 +8,9 @@ import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
 
+import { AuthenticationService } from './authentication.service'
+import { ZenithEventService } from './zenith-event.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AuthenticationService, ZenithEventService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
